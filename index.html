@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ouvertures d'échecs</title>
+    <meta
+      name="description"
+      content="Catalogue d'ouvertures d'échecs avec résumés, théorie, évaluations et variantes."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="eyebrow">Répertoire</span>
+          <h1>Ouvertures d'échecs</h1>
+        </div>
+
+        <label class="search-wrap" for="searchInput">
+          <span>🔎</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Chercher une ouverture..."
+            aria-label="Chercher une ouverture"
+          />
+        </label>
+
+        <div id="openingList" class="opening-list" aria-live="polite"></div>
+      </aside>
+
+      <main class="detail-panel">
+        <div id="hubView" class="hub-view">
+          <header class="hub-header">
+            <span class="tag">Hub</span>
+            <h2>Catalogue des ouvertures</h2>
+            <p>
+              Choisissez une ouverture pour accéder à son résumé, sa théorie et ses variantes.
+            </p>
+          </header>
+
+          <div id="openingGrid" class="opening-grid"></div>
+        </div>
+
+        <div id="detailView" class="detail-view hidden">
+          <button id="backButton" class="back-button" type="button">← Retour au hub</button>
+
+          <header id="openingHeader" class="opening-header"></header>
+
+          <section class="summary-panel">
+            <div class="section-heading">
+              <span class="tag">Idée principale</span>
+              <h2>Résumé</h2>
+            </div>
+            <div id="openingIdea" class="lead"></div>
+          </section>
+
+          <section class="theory-panel">
+            <div class="section-heading">
+              <span class="tag">Théorie</span>
+              <h2>Lignes principales</h2>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Suite théorique</th>
+                    <th>Évaluation</th>
+                    <th>Idée pour la suite</th>
+                  </tr>
+                </thead>
+                <tbody id="theoryTable"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="variants-panel">
+            <div class="section-heading">
+              <span class="tag">Variantes</span>
+              <h2>Autres lignes</h2>
+            </div>
+            <div id="variantsList" class="variant-grid"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
