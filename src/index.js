@@ -1,3 +1,57 @@
+function buildOpeningPosition(moves) {
+  const files = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  const board = new Map();
+
+  files.forEach((file, index) => {
+    const whiteBackRank = ["R", "N", "B", "Q", "K", "B", "N", "R"];
+    const blackBackRank = ["r", "n", "b", "q", "k", "b", "n", "r"];
+
+    board.set(`${file}1`, { square: `${file}1`, type: whiteBackRank[index], color: "w" });
+    board.set(`${file}8`, { square: `${file}8`, type: blackBackRank[index], color: "b" });
+    board.set(`${file}2`, { square: `${file}2`, type: "P", color: "w" });
+    board.set(`${file}7`, { square: `${file}7`, type: "p", color: "b" });
+  });
+
+  moves.forEach(([from, to]) => {
+    const piece = board.get(from);
+    if (!piece) {
+      return;
+    }
+
+    board.delete(from);
+    board.set(to, { ...piece, square: to });
+  });
+
+  return Array.from(board.values());
+}
+
+function buildOpeningSetup({ whiteMoved = [], blackMoved = [] } = {}) {
+  const startingBoard = new Map();
+  const files = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+  files.forEach((file, index) => {
+    const whiteBackRank = ["R", "N", "B", "Q", "K", "B", "N", "R"];
+    const blackBackRank = ["r", "n", "b", "q", "k", "b", "n", "r"];
+
+    startingBoard.set(`${file}1`, { square: `${file}1`, type: whiteBackRank[index], color: "w" });
+    startingBoard.set(`${file}8`, { square: `${file}8`, type: blackBackRank[index], color: "b" });
+    startingBoard.set(`${file}2`, { square: `${file}2`, type: "P", color: "w" });
+    startingBoard.set(`${file}7`, { square: `${file}7`, type: "p", color: "b" });
+  });
+
+  [...whiteMoved, ...blackMoved].forEach(([from, to]) => {
+    const piece = startingBoard.get(from);
+    if (!piece) {
+      return;
+    }
+
+    startingBoard.delete(from);
+    startingBoard.set(to, { ...piece, square: to });
+  });
+
+  return Array.from(startingBoard.values());
+}
+
 const openings = [
   {
     id: "ruy-lopez",
@@ -7,6 +61,13 @@ const openings = [
     players: ["Fischer", "Capablanca", "Kasparov"],
     summary:
       "La Partie espagnole est la référence classique du jeu de pièces. Elle offre un développement harmonieux, du contrôle central et une pression durable sur la structure noire.",
+    basePieces: buildOpeningPosition([
+      ["e2", "e4"],
+      ["e7", "e5"],
+      ["g1", "f3"],
+      ["b8", "c6"],
+      ["f1", "b5"]
+    ]),
     idea: [
       "Le blanc cherche à construire une position solide avec une activité supérieure des pièces.",
       "Le point d’appui sur e5 et la pression sur f7 font partie du cœur stratégique de l’ouverture.",
@@ -93,6 +154,10 @@ const openings = [
     players: ["Kasparov", "Nakamura", "Fischer"],
     summary:
       "La Sicilienne est l’une des ouvertures les plus vivantes de l’échiquier. Elle défie directement le centre du roi et cherche à créer un contre-jeu profond.",
+    basePieces: buildOpeningSetup({
+      whiteMoved: [["e2", "e4"]],
+      blackMoved: [["c7", "c5"]]
+    }),
     idea: [
       "Le noir conteste le centre en utilisant ...c5 et s’appuie sur un asymétrisme permanent.",
       "Le but est de créer des tensions sur d5 et e4 et de profiter des faiblesses structurelles.",
@@ -179,6 +244,10 @@ const openings = [
     players: ["Alekhine", "Botvinnik", "Capablanca"],
     summary:
       "La Française est une ouverture très solide et instructive. Elle laisse au noir une structure de pions durable, mais avec un pion avancé en d5 qui doit être défendu avec rigueur.",
+    basePieces: buildOpeningSetup({
+      whiteMoved: [["e2", "e4"], ["d2", "d4"]],
+      blackMoved: [["e7", "e6"], ["d7", "d5"]]
+    }),
     idea: [
       "Le noir cherche à transformer le centre en chaîne et à utiliser l’avance du pion d5 comme un outil d’attaque.",
       "Les pièces du blanc sont souvent poussées à l’aile roi, tandis que le noir joue sur l’aile dame ou sur le centre.",
@@ -265,6 +334,10 @@ const openings = [
     players: ["Karpov", "Botvinnik", "Sämisch"],
     summary:
       "Le Caro-Kann est très solide et très propre. Le noir cherche à construire une structure robuste et à exploiter les faiblesses du camp adverse.",
+    basePieces: buildOpeningSetup({
+      whiteMoved: [["e2", "e4"], ["d2", "d4"]],
+      blackMoved: [["c7", "c6"], ["d7", "d5"]]
+    }),
     idea: [
       "Le noir construit une structure centrale ferme et applique une logique de développement propre.",
       "L’idée est d’échanger le pion d5 et de jouer sur les faiblesses de la structure blanche après l’ouverture.",
@@ -351,6 +424,13 @@ const openings = [
     players: ["Morphy", "Kasparov", "Nimzowitsch"],
     summary:
       "La Partie italienne est l’ouverture des grands principes du jeu de pièces : développement harmonieux, centre fort et initiative sur le point f7.",
+    basePieces: buildOpeningPosition([
+      ["e2", "e4"],
+      ["e7", "e5"],
+      ["g1", "f3"],
+      ["b8", "c6"],
+      ["f1", "c4"]
+    ]),
     idea: [
       "Le blanc construit son centre puis cherche l’attaque sur le côté du roi.",
       "Le fou de c4 vise le point f7, ce qui est souvent très puissant dans l’ouverture.",
@@ -437,6 +517,15 @@ const openings = [
     players: ["Karpov", "Kasparov", "Nakamura"],
     summary:
       "Le Catalan est une ouverture très moderne et très instructive. Il repose sur un jeu de pièces harmonieux, du contrôle du centre et des plans subtils sur les ailes.",
+    basePieces: buildOpeningPosition([
+      ["d2", "d4"],
+      ["d7", "d5"],
+      ["c2", "c4"],
+      ["e7", "e6"],
+      ["g1", "f3"],
+      ["g8", "f6"],
+      ["g2", "g3"]
+    ]),
     idea: [
       "Le blanc évite la symétrie du centre et cherche un jeu de pièces plus souple.",
       "Les idées du Catalan passent par le fianchetto du fou de g2 et la pression sur le point d5.",
@@ -523,6 +612,13 @@ const openings = [
     players: ["Karpov", "Nakamura", "Botvinnik"],
     summary:
       "L’Anglaise est une ouverture de flanc très moderne, très souple et très utile dans les parties de haut niveau. Elle façonne le centre par des idées indirectes.",
+    basePieces: buildOpeningPosition([
+      ["c2", "c4"],
+      ["e7", "e5"],
+      ["b1", "c3"],
+      ["g8", "f6"],
+      ["g2", "g3"]
+    ]),
     idea: [
       "Le blanc ne cherche pas une confrontation immédiate, mais une structure plus flexible.",
       "L’objectif est d’établir un contrôle plus subtil du centre et de préparer la poussée d4 ou c5.",
@@ -605,6 +701,7 @@ const openings = [
 
 const openingGrid = document.getElementById("openingGrid");
 const openingHeader = document.getElementById("openingHeader");
+const openingBoard = document.getElementById("openingBoard");
 const openingIdea = document.getElementById("openingIdea");
 const theoryTable = document.getElementById("theoryTable");
 const variantsList = document.getElementById("variantsList");
@@ -612,6 +709,69 @@ const searchInput = document.getElementById("searchInput");
 const hubView = document.getElementById("hubView");
 const detailView = document.getElementById("detailView");
 const backButton = document.getElementById("backButton");
+
+const pieceImageMap = {
+  wK: "https://lichess1.org/assets/piece/merida/wK.svg",
+  wQ: "https://lichess1.org/assets/piece/merida/wQ.svg",
+  wR: "https://lichess1.org/assets/piece/merida/wR.svg",
+  wB: "https://lichess1.org/assets/piece/merida/wB.svg",
+  wN: "https://lichess1.org/assets/piece/merida/wN.svg",
+  wP: "https://lichess1.org/assets/piece/merida/wP.svg",
+  bK: "https://lichess1.org/assets/piece/merida/bK.svg",
+  bQ: "https://lichess1.org/assets/piece/merida/bQ.svg",
+  bR: "https://lichess1.org/assets/piece/merida/bR.svg",
+  bB: "https://lichess1.org/assets/piece/merida/bB.svg",
+  bN: "https://lichess1.org/assets/piece/merida/bN.svg",
+  bP: "https://lichess1.org/assets/piece/merida/bP.svg"
+};
+
+function getDefaultFullBoard() {
+  const pieces = [];
+  const files = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+  ["rook", "knight", "bishop", "queen", "king", "bishop", "knight", "rook"].forEach((type, index) => {
+    const whiteKey = type === "rook" ? "R" : type === "knight" ? "N" : type === "bishop" ? "B" : type === "queen" ? "Q" : type === "king" ? "K" : "";
+    const blackKey = whiteKey.toLowerCase();
+    pieces.push({ square: `${files[index]}1`, type: whiteKey, color: "w" });
+    pieces.push({ square: `${files[index]}8`, type: blackKey, color: "b" });
+  });
+
+  for (let i = 0; i < 8; i += 1) {
+    pieces.push({ square: `${files[i]}2`, type: "P", color: "w" });
+    pieces.push({ square: `${files[i]}7`, type: "p", color: "b" });
+  }
+
+  return pieces;
+}
+
+function renderBoardDiagram(opening) {
+  const board = Array.from({ length: 8 }, () => Array(8).fill(null));
+  const usePieces = opening.basePieces && opening.basePieces.length > 12 ? opening.basePieces : getDefaultFullBoard();
+
+  usePieces.forEach(({ square, type, color }) => {
+    const file = square.charCodeAt(0) - 97;
+    const rank = Number(square.slice(1)) - 1;
+    board[7 - rank][file] = { type, color };
+  });
+
+  const rows = [];
+  for (let row = 0; row < 8; row += 1) {
+    for (let col = 0; col < 8; col += 1) {
+      const piece = board[row][col];
+      const isDark = (row + col) % 2 === 1;
+      const key = piece ? `${piece.color}${piece.type.toUpperCase()}` : null;
+      const imageUrl = key ? pieceImageMap[key] : "";
+
+      rows.push(`
+        <div class="board-square ${isDark ? "dark" : "light"}">
+          ${imageUrl ? `<img src="${imageUrl}" alt="${piece.type.toUpperCase()}" />` : ""}
+        </div>
+      `);
+    }
+  }
+
+  openingBoard.innerHTML = rows.join("");
+}
 
 let currentId = openings[0].id;
 
@@ -634,6 +794,7 @@ function renderBoard(opening) {
     </div>
   `;
 
+  renderBoardDiagram(opening);
   renderIdea(opening);
 
   theoryTable.innerHTML = opening.theory
