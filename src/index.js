@@ -4,12 +4,13 @@ const openings = [
     name: "Partie espagnole",
     eco: "C60",
     family: "Ouverture classique",
+    players: ["Fischer", "Capablanca", "Kasparov"],
     summary:
       "La Partie espagnole est la référence classique du jeu de pièces. Elle offre un développement harmonieux, du contrôle central et une pression durable sur la structure noire.",
     idea: [
       "Le blanc cherche à construire une position solide avec une activité supérieure des pièces.",
-      "Le point d’appui sur e5 et la pression sur le point f7 font partie du cœur stratégique de l’ouverture.",
-      "L’objectif est de garder l’avantage de l’espace et de provoquer des complications minimales mais très précises."
+      "Le point d’appui sur e5 et la pression sur f7 font partie du cœur stratégique de l’ouverture.",
+      "L’objectif est de garder l’avantage de l’espace et de provoquer des complications précises sans précipiter le jeu."
     ],
     theory: [
       {
@@ -19,32 +20,68 @@ const openings = [
       },
       {
         moves: "3...a6 4.Fa4 Cf6 5.0-0 Fe7 6.Te1 b5 7.Fb3 d6",
-        evaluation: "La qualité de la position est légèrement meilleure pour les blancs, car ils ont un meilleur développement et une meilleure mobilité en raison de la présence du fou b5.",
-        plan: "Le blanc continue à développer très proprement et à pousser le noir vers un jeu de pièces délicat."
+        evaluation: "La qualité de la position est légèrement meilleure pour les blancs. Le développement est plus propre et la mobilité de leurs pièces est supérieure.",
+        plan: "Le blanc continue à développer proprement et à pousser le noir vers un jeu de pièces délicat."
       },
       {
         moves: "8.c3 0-0 9.h3 h6 10.d4",
-        evaluation: "Le centre est maintenant poussé et très contesté. Le blanc bénéficie d’une structure de pions plus solide et d’un meilleur espace.",
-        plan: "Le noir doit gérer la pression sur la case d5 et sur la structure de pion centrale."
+        evaluation: "Le centre est plus contesté et le blanc bénéficie d’une structure plus solide et d’un meilleur espace.",
+        plan: "Le noir doit gérer la pression sur d5 et la structure de pion centrale."
       },
       {
         moves: "10...Cd7 11.Cbd2 Cf8 12.b4",
-        evaluation: "Le plan blanc vise l’espace et la domination plus que la tactique immédiate. La position reste favorable sur le plan stratégique.",
-        plan: "Le noir doit répondre au contrôle de la diagonale et aux menaces sur le point c5."
+        evaluation: "Le plan blanc vise l’espace et la domination, plus que la tactique immédiate. La position reste favorable sur le plan stratégique.",
+        plan: "Le noir doit répondre au contrôle de la diagonale et aux menaces sur c5."
       }
     ],
     variants: [
       {
         title: "Variante ouverte",
-        text: "Le centre s’ouvre tôt et la position devient très dynamique, avec des pièces actives et des ambitions tactiques."
+        text: "Le centre s’ouvre tôt et la position devient très dynamique avec des pièces actives et des ambitions tactiques.",
+        lines: [
+          {
+            moves: "1.e4 e5 2.Cf3 Cc6 3.Fb5 a6 4.Fa4 Cf6 5.0-0 Fe7 6.Te1 b5 7.Fb3 d6 8.c3 0-0 9.h3 h6 10.d4",
+            evaluation: "Le blanc garde un petit avantage structurel grâce à son meilleur développement et à la pression sur le centre.",
+            plan: "Le noir cherche à gérer le centre et la structure sans perdre le rythme du développement."
+          },
+          {
+            moves: "10...Cd7 11.Cbd2 Cf8 12.b4",
+            evaluation: "Le camp blanc a l’initiative stratégique, surtout sur les diagonales et la case d5.",
+            plan: "Le noir doit se défendre calmement et chercher à contraindre l’espace blanc."
+          }
+        ]
       },
       {
         title: "Défense berlinoise",
-        text: "Le noir défend sa structure et cherche un jeu solide, souvent plus ferme et plus technique."
+        text: "Le noir défend sa structure et cherche un jeu solide, souvent plus ferme et plus technique.",
+        lines: [
+          {
+            moves: "1.e4 e5 2.Cf3 Cc6 3.Fb5 Cf6 4.0-0 Cxe4 5.d4",
+            evaluation: "Les blancs obtiennent une meilleure coordination et la position est plus agréable au plan stratégique.",
+            plan: "Le noir doit rester méthodique et ne pas se laisser entraîner trop vite dans la tactique."
+          },
+          {
+            moves: "5...Cd6 6.Fxc6 bxc6 7.dxe5 Cb7",
+            evaluation: "La position est équilibrée, mais la pression sur le roi noir reste très importante.",
+            plan: "Le noir cherche à créer de l’activité et à maîtriser les cases faibles."
+          }
+        ]
       },
       {
         title: "Variation Morphy",
-        text: "Une ligne plus tactique dans laquelle les sacrifices et les échanges peuvent donner plus d’initiative au joueur qui prend l’initiative."
+        text: "Une ligne plus tactique dans laquelle les sacrifices et les échanges peuvent donner beaucoup d’initiative.",
+        lines: [
+          {
+            moves: "1.e4 e5 2.Cf3 Cc6 3.Fb5 a6 4.Fa4 Cf6 5.0-0 Fe7 6.Te1 b5 7.Fb3 d6 8.c3 0-0 9.h3 h6 10.d4",
+            evaluation: "Le blanc a un meilleur jeu de pièces et un centre plus fort, même si le noir a des idées tactiques.",
+            plan: "Le noir essaie de créer des complications sur les pièces du roi et les diagonales."
+          },
+          {
+            moves: "10...Cd7 11.Cbd2 Cf8 12.b4",
+            evaluation: "Le blanc commence à imposer un jeu de pression plus profond et plus technique.",
+            plan: "Le noir doit être précis dans ses échanges et dans ses réactions sur l’aile dame."
+          }
+        ]
       }
     ]
   },
@@ -53,11 +90,12 @@ const openings = [
     name: "Défense sicilienne",
     eco: "B20",
     family: "Défense semi-ouverte",
+    players: ["Kasparov", "Nakamura", "Fischer"],
     summary:
-      "La Sicilienne est l’une des ouvertures les plus vivantes de l’échiquier. Elle suppose que le noir défie directement le centre du roi et cherche à créer un contre-jeu profond.",
+      "La Sicilienne est l’une des ouvertures les plus vivantes de l’échiquier. Elle défie directement le centre du roi et cherche à créer un contre-jeu profond.",
     idea: [
       "Le noir conteste le centre en utilisant ...c5 et s’appuie sur un asymétrisme permanent.",
-      "Le but est de créer des tensions sur les cases d5 et e4 et de profiter des faiblesses structurelles.",
+      "Le but est de créer des tensions sur d5 et e4 et de profiter des faiblesses structurelles.",
       "Dans la plupart des lignes, le noir joue un jeu de contre-attaque pour compenser l’espace du camp blanc."
     ],
     theory: [
@@ -68,7 +106,7 @@ const openings = [
       },
       {
         moves: "4...e6 5.Cc3 a6 6.Fe3 Cf6 7.Bd3 d6",
-        evaluation: "Le blanc garde un meilleur développement et une meilleure coordination, mais le noir dispose d’un contre-jeu utile sur les cases sombres.",
+        evaluation: "Le blanc garde un meilleur développement, mais le noir dispose d’un contre-jeu utile sur les cases sombres.",
         plan: "Le noir doit rester calme et chercher l’activité à partir des cases d5 et e5."
       },
       {
@@ -85,15 +123,51 @@ const openings = [
     variants: [
       {
         title: "Sicilienne ouverte",
-        text: "Un combat de pièces très rapide dans lequel le développement et l’initiative prennent toute leur valeur."
+        text: "Un combat de pièces très rapide dans lequel le développement et l’initiative prennent toute leur valeur.",
+        lines: [
+          {
+            moves: "1.e4 c5 2.Cf3 Cc6 3.d4 cxd4 4.Cxd4 e6 5.Cc3 a6 6.Fe3 Cf6 7.Bd3 d6",
+            evaluation: "Le blanc a l’avantage du développement, mais la Sicilienne offre un excellent contre-jeu au noir.",
+            plan: "Le noir essaie de trouver le bon moment pour l’activité sur le flanc dame et sur le centre."
+          },
+          {
+            moves: "8.0-0 Fe7 9.h3 0-0 10.a3 b5",
+            evaluation: "La position est vive et dynamique. L’équilibre est ténu et chaque détail compte.",
+            plan: "Le jeu dépend de la qualité des échanges et des pièces actives."
+          }
+        ]
       },
       {
         title: "Dragon",
-        text: "Le noir cherche la structure autour du point f7 et une attaque sur le roi."
+        text: "Le noir cherche la structure autour du point f7 et une attaque sur le roi.",
+        lines: [
+          {
+            moves: "1.e4 c5 2.Cf3 Cc6 3.d4 cxd4 4.Cxd4 g6",
+            evaluation: "Le noir a une structure de dragon très active et des chances de pression sur l’aile roi.",
+            plan: "Le noir cherche à instaurer une attaque sur le point f7 et conserver sa structure."
+          },
+          {
+            moves: "5.Cc3 Fg7 6.Fe3 Cf6 7.Dd2 0-0 8.0-0-0 d6",
+            evaluation: "Le noir est bien préparé pour un contre-jeu sérieux, avec de très bonnes chances de dynamisme.",
+            plan: "Le blanc doit rester équilibré et n’accepter qu’un mini-compromis acceptable."
+          }
+        ]
       },
       {
         title: "Najdorf",
-        text: "Une ligne ultra profonde qui demande beaucoup de précision et de préparation stratégique."
+        text: "Une ligne ultra profonde qui demande beaucoup de précision et de préparation stratégique.",
+        lines: [
+          {
+            moves: "1.e4 c5 2.Cf3 d6 3.d4 cxd4 4.Cxd4 Cf6 5.Cc3 a6",
+            evaluation: "Le noir a un bon cadre de jeu avec des idées sur l’aile dame et sur le centre.",
+            plan: "Le blanc cherche à contrôler l’initiative tactique, tandis que le noir gagne du temps."
+          },
+          {
+            moves: "6.Fe3 e6 7.Dd2 Fd7 8.0-0-0",
+            evaluation: "Le jeu est très équilibré et très profond. Le noir garde de la vie et de la pression.",
+            plan: "La partie dépendra de la qualité des pièces et des plans sur le flanc."
+          }
+        ]
       }
     ]
   },
@@ -102,8 +176,9 @@ const openings = [
     name: "Défense française",
     eco: "C00",
     family: "Défense semi-ouverte",
+    players: ["Alekhine", "Botvinnik", "Capablanca"],
     summary:
-      "La Française est une ouverture très solide et très instructive. Elle laisse au noir une structure de pions durable, mais avec un pion avancé en d5 qui doit être défendu avec rigueur.",
+      "La Française est une ouverture très solide et instructive. Elle laisse au noir une structure de pions durable, mais avec un pion avancé en d5 qui doit être défendu avec rigueur.",
     idea: [
       "Le noir cherche à transformer le centre en chaîne et à utiliser l’avance du pion d5 comme un outil d’attaque.",
       "Les pièces du blanc sont souvent poussées à l’aile roi, tandis que le noir joue sur l’aile dame ou sur le centre.",
@@ -112,17 +187,17 @@ const openings = [
     theory: [
       {
         moves: "1.e4 e6 2.d4 d5 3.Cc3 dxe4 4.Cxe4",
-        evaluation: "Le blanc a un centre solide, mais sa structure est souvent moins harmonieuse. Le noir vise un jeu actif et bien préparé.",
+        evaluation: "Le blanc a un centre solide, mais sa structure est moins harmonieuse. Le noir vise un jeu actif et bien préparé.",
         plan: "Le noir essaye de développer ses pièces, d’engager des échanges et de chercher un contre-jeu."
       },
       {
         moves: "4...Cf6 5.Cxf6+ gxf6 6.c3",
-        evaluation: "Le camp blanc a un avantage structurel légèrement plus net, mais la chaîne centrale reste encore très forte pour le noir.",
+        evaluation: "Le camp blanc a un avantage structurel légèrement plus net, mais la chaîne centrale reste très forte pour le noir.",
         plan: "Le noir cherche à remettre les pièces sur le centre et à organiser un jeu sur le flanc."
       },
       {
         moves: "6...Fd7 7.Fd3 c5 8.De2",
-        evaluation: "Le centre est encore très riche et l’activité des pièces devient centrale. L’avantage est mince, mais il est bien réel.",
+        evaluation: "Le centre reste très riche et l’activité des pièces devient centrale. L’avantage est mince, mais bien réel.",
         plan: "Le noir veut établir un contre-jeu avec ...c5 et surveiller les faiblesses du roque blanc."
       },
       {
@@ -134,15 +209,51 @@ const openings = [
     variants: [
       {
         title: "Variante Winawer",
-        text: "Une ligne très tactique avec des échanges de pièces et des complications majeures."
+        text: "Une ligne très tactique avec des échanges de pièces et des complications majeures.",
+        lines: [
+          {
+            moves: "1.e4 e6 2.d4 d5 3.Cc3 Cb8 4.Fg5 dxe4 5.Cxe4",
+            evaluation: "Le blanc construit un centre solide, mais la structure et les pièces du noir restent très actives.",
+            plan: "Le noir veut jouer sur les échanges et sur la qualité de ses pièces avant la contre-attaque."
+          },
+          {
+            moves: "5...Fd7 6.Cf3 Fd6 7.Ce5",
+            evaluation: "Le jeu devient très tactique et on entre dans des positions où la précision est fondamentale.",
+            plan: "Les deux camps calculent les combinaisons et les plans de pièces avec précision."
+          }
+        ]
       },
       {
         title: "Variante d’échange",
-        text: "Une ligne plus calme et plus technique, souvent choisie pour simplifier le jeu et viser la finale."
+        text: "Une ligne plus calme et plus technique, souvent choisie pour simplifier le jeu et viser la finale.",
+        lines: [
+          {
+            moves: "1.e4 e6 2.d4 d5 3.Cc3 dxe4 4.Cxe4 Cc6 5.Cf3",
+            evaluation: "La position est plus calme, avec moins de tactique immédiate et davantage de jeu de pièces.",
+            plan: "Le noir cherche à consolider sa structure et à préparer le jeu de pièces."
+          },
+          {
+            moves: "5...Fd7 6.Fd3 Fd6 7.0-0 Cge7",
+            evaluation: "Le blanc a un centre fort, mais le noir garde de bonnes chances de contre-jeu sur l’aile dame.",
+            plan: "L’avantage est minime, donc la position dépendra de l’exactitude du développement."
+          }
+        ]
       },
       {
         title: "Ligne d’Abrahams",
-        text: "Une approche moderne qui part sur des plans dynamiques, de contre-jeu et d’attaque."
+        text: "Une approche moderne qui part sur des plans dynamiques, de contre-jeu et d’attaque.",
+        lines: [
+          {
+            moves: "1.e4 e6 2.d4 d5 3.Cc3 c5 4.Cf3 Cc6 5.e5",
+            evaluation: "Le blanc cherche à solliciter le centre et à créer des menaces sur les cases du noir.",
+            plan: "Le noir doit trouver la meilleure manière de compenser l’espace et la pression sur le roi."
+          },
+          {
+            moves: "5...Fd7 6.Ce2 cxd4 7.Cxd4",
+            evaluation: "Le centre reste très chaud et le noir doit choisir entre tactique et solidité.",
+            plan: "La suite implique des échanges et des plans sur les faiblesses du roque adverse."
+          }
+        ]
       }
     ]
   },
@@ -151,8 +262,9 @@ const openings = [
     name: "Défense Caro-Kann",
     eco: "B10",
     family: "Défense semi-ouverte",
+    players: ["Karpov", "Botvinnik", "Sämisch"],
     summary:
-      "Le Caro-Kann est très solide et très propre. Le noir cherche à construire une structure robuste, puis à utiliser les faiblesses du camp adverse sans pour autant livrer de jeu trop sain.",
+      "Le Caro-Kann est très solide et très propre. Le noir cherche à construire une structure robuste et à exploiter les faiblesses du camp adverse.",
     idea: [
       "Le noir construit une structure centrale ferme et applique une logique de développement propre.",
       "L’idée est d’échanger le pion d5 et de jouer sur les faiblesses de la structure blanche après l’ouverture.",
@@ -183,15 +295,51 @@ const openings = [
     variants: [
       {
         title: "Variante principale",
-        text: "Une structure solide et très saine, souvent choisie pour une logique très convaincante et nette."
+        text: "Une structure solide et très saine, souvent choisie pour une logique très convaincante et nette.",
+        lines: [
+          {
+            moves: "1.e4 c6 2.d4 d5 3.Cc3 dxe4 4.Cxe4 Cf6 5.Cxf6+ gxf6 6.c3",
+            evaluation: "La position est correcte et bien équilibrée, mais le noir garde un jeu utile et durable.",
+            plan: "Le noir cherche à faire durer la position jusqu’à ce que le blanc commette un petit défaut."
+          },
+          {
+            moves: "6...Fd7 7.Fd3 Fg7 8.Ce2 0-0 9.0-0 e6",
+            evaluation: "Le blanc a une meilleure coordination, mais la structure noire est solide et les compromis sont nombreux.",
+            plan: "Le noir choisit la route la plus pratique pour le contre-jeu sur le flanc."
+          }
+        ]
       },
       {
         title: "Ligne d’échange",
-        text: "La simplification offre souvent une finale bien gérée, avec un bon équilibre technique."
+        text: "La simplification offre souvent une finale bien gérée, avec un bon équilibre technique.",
+        lines: [
+          {
+            moves: "1.e4 c6 2.d4 d5 3.Cc3 dxe4 4.Cxe4 Cd7 5.Cf3",
+            evaluation: "La position se simplifie, mais le noir garde une bonne structure et un jeu durable.",
+            plan: "Le noir exploite surtout le jeu de pièces et la qualité de sa structure."
+          },
+          {
+            moves: "5...e6 6.Cf3 0-0 7.Bd3",
+            evaluation: "Le blanc a un bon centre, mais le noir garde un jeu solide et bien organisé.",
+            plan: "Le noir peut continuer à jouer résolument sans se laisser pousser trop loin."
+          }
+        ]
       },
       {
         title: "Structure d’attaque",
-        text: "Le noir cherche à utiliser les cases faibles et le profit d’une structure moins favorable au blanc."
+        text: "Le noir cherche à utiliser les cases faibles et le profit d’une structure moins favorable au blanc.",
+        lines: [
+          {
+            moves: "1.e4 c6 2.d4 d5 3.Cc3 dxe4 4.Cxe4 Bf5",
+            evaluation: "Le noir gagne du temps sur le développement et prend des options sur le centre.",
+            plan: "Le noir veut créer des tensions sur le centre pour lancer un contre-jeu judicieux."
+          },
+          {
+            moves: "5.Cg3 Bg6 6.h4 h5 7.Fd3",
+            evaluation: "Le jeu est plus actif et la lutte sur les cases faibles devient très importante.",
+            plan: "Le noir cherche à exploiter les faiblesses et la qualité globale de son jeu."
+          }
+        ]
       }
     ]
   },
@@ -200,6 +348,7 @@ const openings = [
     name: "Partie italienne",
     eco: "C50",
     family: "Ouverture ouverte",
+    players: ["Morphy", "Kasparov", "Nimzowitsch"],
     summary:
       "La Partie italienne est l’ouverture des grands principes du jeu de pièces : développement harmonieux, centre fort et initiative sur le point f7.",
     idea: [
@@ -232,64 +381,51 @@ const openings = [
     variants: [
       {
         title: "Giuoco Piano",
-        text: "Une ligne calme et solide, souvent très appréciée pour le développement harmonieux et la bonne coordination."
+        text: "Une ligne calme et solide, souvent très appréciée pour le développement harmonieux et la bonne coordination.",
+        lines: [
+          {
+            moves: "1.e4 e5 2.Cf3 Cc6 3.Fc4 Fc5 4.c3 Cf6 5.d3 d6",
+            evaluation: "Le blanc garde la meilleure coordination et les pièces sont bien préparées.",
+            plan: "Le blanc cherche à contrôler le centre et à lancer une attaque sur le point f7."
+          },
+          {
+            moves: "6.0-0 0-0 7.h3 h6 8.Fe3",
+            evaluation: "Le blanc a une légère supériorité de développement et de coordination.",
+            plan: "Le noir doit augmenter le dynamisme pour garder l’équilibre."
+          }
+        ]
       },
       {
         title: "Partie italienne classique",
-        text: "Le blanc cherche à construire un plan de pièces plus agressif avec une pression continue sur le roi."
+        text: "Le blanc cherche à construire un plan de pièces plus agressif avec une pression continue sur le roi.",
+        lines: [
+          {
+            moves: "1.e4 e5 2.Cf3 Cc6 3.Fc4 Fc5 4.b4",
+            evaluation: "Le blanc prend une initiative assez claire et cherche à ouvrir le centre rapidement.",
+            plan: "Le roi noir est bien plus exposé si le blanc continue à développer correctement."
+          },
+          {
+            moves: "4...Fxb4 5.c3 Fa5 6.d4",
+            evaluation: "Le blanc met de la pression sur le centre et le noir doit faire des choix très précis.",
+            plan: "Le noir cherche à défendre son centre sans se donner une position trop faible."
+          }
+        ]
       },
       {
         title: "Gambit Evans",
-        text: "Le blanc sacrifie du matériel pour une initiative plus rapide et un meilleur contrôle du centre."
-      }
-    ]
-  },
-  {
-    id: "dame-indienne",
-    name: "Défense indienne de la dame",
-    eco: "A45",
-    family: "Défense indienne",
-    summary:
-      "La Défense indienne de la dame est un cadre très moderne, fondé sur la flexibilité et la possibilité de contester le centre de manière indirecte.",
-    idea: [
-      "Le noir cherche à contrôler le centre sans se fixer trop vite sur un schéma trop statique.",
-      "Le but est d’utiliser la structure de flanc et le contre-jeu pour contester la logique du blanc.",
-      "L’ouverture donne souvent au noir des chances de contre-attaque sur l’aile dame ou sur l’aile roi."
-    ],
-    theory: [
-      {
-        moves: "1.d4 d5 2.c4 Cf6 3.Cc3 e6",
-        evaluation: "Le noir est en train de construire un plan classique et très solide, avec un développement harmonieux et une bonne flexibilité.",
-        plan: "Le noir veut ensuite préparer le centre et préparer un éventuel contre-jeu sur l’aile dame."
-      },
-      {
-        moves: "4.Fg5 c5 5.e3 Cc6 6.cxd5 exd5",
-        evaluation: "La position est légèrement meilleure pour le blanc en raison de l’espace, mais le noir garde de belles chances d’activité et d’équilibre.",
-        plan: "Le noir doit continuer à développer et à préparer la pression sur les cases faibles du blanc."
-      },
-      {
-        moves: "7.Cf3 Fe7 8.Dc2 0-0 9.Fd3",
-        evaluation: "La position se complique et le centre devient plus centralisé. Le noir cherche la meilleure mobilisation de ses pièces.",
-        plan: "Le noir va tenter de trouver un bon équilibre entre sécurité et possibilité de pression sur le centre."
-      },
-      {
-        moves: "9...b6 10.0-0 Bb7 11.Ce5",
-        evaluation: "Le blanc prend du terrain et la pression devient plus claire. Le noir doit être utilement actif et précis.",
-        plan: "Les rêves de contre-jeu du noir doivent reposer sur un bon placement des pièces et de bons échanges."
-      }
-    ],
-    variants: [
-      {
-        title: "Ligne classique",
-        text: "Le noir cherche à construire un schéma solide avec des idées de structure, de développement et de jeu de pièces."
-      },
-      {
-        title: "Grünfeld",
-        text: "Une ligne plus dynamique où le noir s’engage dans un combat de structures profond et actif."
-      },
-      {
-        title: "Benoni",
-        text: "Une structure agressive, très riche et très vivante, qui exige une bonne préparation et des idées concrètes."
+        text: "Le blanc sacrifie du matériel pour une initiative plus rapide et un meilleur contrôle du centre.",
+        lines: [
+          {
+            moves: "1.e4 e5 2.Cf3 Cc6 3.Fc4 Fc5 4.b4 Fxb4 5.c3 Fa5",
+            evaluation: "Le blanc a déjà une initiative immédiate et une meilleure activité des pièces.",
+            plan: "La suite consiste à exploiter le développement rapide et l’initiative du blanc."
+          },
+          {
+            moves: "6.d4 exd4 7.0-0",
+            evaluation: "Le blanc a un petit avantage, mais ce sont des complications tactiques qui demandent beaucoup de calcul.",
+            plan: "Le noir doit rester précis et ne pas laisser le centre blanc se consolider."
+          }
+        ]
       }
     ]
   },
@@ -298,6 +434,7 @@ const openings = [
     name: "Catalan",
     eco: "E00",
     family: "Ouverture semi-ouverte",
+    players: ["Karpov", "Kasparov", "Nakamura"],
     summary:
       "Le Catalan est une ouverture très moderne et très instructive. Il repose sur un jeu de pièces harmonieux, du contrôle du centre et des plans subtils sur les ailes.",
     idea: [
@@ -318,7 +455,7 @@ const openings = [
       },
       {
         moves: "7.Cc3 b6 8.cxd5 cxd5 9.Ce5",
-        evaluation: "Le centre est maintenant renforcé et le camp blanc garde la meilleure base stratégique de la position.",
+        evaluation: "Le centre est renforcé et le blanc garde la meilleure base stratégique de la position.",
         plan: "Le noir devra résoudre rapidement les problèmes structurels et trouver un plan de compensation."
       },
       {
@@ -330,64 +467,51 @@ const openings = [
     variants: [
       {
         title: "Ligne classique",
-        text: "Le blanc cherche à contrôler la case d5 et à travailler sur la structure centrale avant de lancer des plans de pièces."
+        text: "Le blanc cherche à contrôler la case d5 et à travailler sur la structure centrale avant de lancer des plans de pièces.",
+        lines: [
+          {
+            moves: "1.d4 d5 2.c4 e6 3.Cf3 Cf6 4.g3 Fe7 5.Fg2 0-0 6.0-0 c6",
+            evaluation: "Le blanc a un beau développement et une structure solide, avec une petite supériorité stratégique.",
+            plan: "Le noir doit parvenir à réorganiser la structure sans laisser l’espace blanc prendre le dessus."
+          },
+          {
+            moves: "7.Cc3 b6 8.cxd5 cxd5 9.Ce5",
+            evaluation: "Le blanc donne une forte pression sur le centre et cherche à garder le contrôle de la case d5.",
+            plan: "Le noir cherche à trouver le bon plan de pièces pour réduire la tension."
+          }
+        ]
       },
       {
         title: "Catalan moderne",
-        text: "Le blanc garde le contrôle du centre tout en laissant la possibilité d’autres structures plus actives et plus flexibles."
+        text: "Le blanc garde le contrôle du centre tout en laissant la possibilité d’autres structures plus actives.",
+        lines: [
+          {
+            moves: "1.d4 d5 2.c4 e6 3.Cf3 Cf6 4.g3 c5",
+            evaluation: "Le jeu est dynamique et le noir cherche à créer des équilibres et des contre-jeux.",
+            plan: "Le blanc doit rester vigilant et ne pas se retrouver sans pièce à l’aile dame."
+          },
+          {
+            moves: "5.cxd5 exd5 6.Fg2 Cc6 7.0-0",
+            evaluation: "Le jeu devient plus subtil, avec une tension sur l’espace et sur le centre.",
+            plan: "Le noir cherche à améliorer le développement sans laisser le blanc menacer le centre."
+          }
+        ]
       },
       {
         title: "Structure de pièces",
-        text: "Le grand intérêt du Catalan réside dans la richesse des plans de pièces, des échanges et des transitions."
-      }
-    ]
-  },
-  {
-    id: "scandinave",
-    name: "Défense scandinave",
-    eco: "B01",
-    family: "Défense semi-ouverte",
-    summary:
-      "La Scandinavave est une ouverture directe, moderne et très agressive. Elle s’appuie sur un sacrifice de pion immédiat et sur une activité de pièces rapide.",
-    idea: [
-      "Le noir répond à 1.e4 par 1...d5, ce qui remet immédiatement le centre en jeu.",
-      "Au lieu de refuser la confrontation, le noir cherche la compensation et le développement rapide.",
-      "Le but est d’obtenir de l’activité et des chances tactiques, parfois très tôt dans la partie."
-    ],
-    theory: [
-      {
-        moves: "1.e4 d5 2.exd5 Dxd5 3.Cc3 Da5",
-        evaluation: "Le noir a déjà directement pris le centre et obtenu une compensation de pion avec beaucoup de complications tactiques.",
-        plan: "Le noir cherche un développement rapide, une bonne activité des pièces et le plus de liberté possible."
-      },
-      {
-        moves: "4.d4 Cf6 5.Cf3 c6 6.Fd3",
-        evaluation: "Le blanc garde un certaine qualité de pièces, mais le noir a de grandes chances d’activité sur les cases centrales et sur le roque adverse.",
-        plan: "Le noir vise le centre, le développement rapide et la possibilité de tensions."
-      },
-      {
-        moves: "6...Fg4 7.0-0 e6 8.h3 Fh5",
-        evaluation: "Le jeu reste très actif, et la position est compliquée dès les premières phases. Les blancs ne sont pas tranquilles.",
-        plan: "Le noir se prépare au jeu sur le point d4 et cherche à lancer une attaque sur le roi blanc."
-      },
-      {
-        moves: "9.Ce5 Cbd7 10.Cxd7 Cxd7",
-        evaluation: "Le développement est largement avancé. Le noir a acquis de la liberté et de la qualité de jeu, mais il doit rester précis dans la manière d’exploiter son avantage.",
-        plan: "La suite dépendra du bon placement de la dame et de la préparation des plans sur le centre."
-      }
-    ],
-    variants: [
-      {
-        title: "Variante principale",
-        text: "Une approche directe et très tactique où les blancs doivent bien gérer la structure et le développement."
-      },
-      {
-        title: "Ligne des échanges",
-        text: "Le noir choisit souvent le plan de simplification pour obtenir une structure plus technique et plus dure."
-      },
-      {
-        title: "Jeu actif",
-        text: "Le noir cherche un jeu de pièces très actif et des menaces immédiates sur le roi."
+        text: "Le grand intérêt du Catalan réside dans la richesse des plans de pièces, des échanges et des transitions.",
+        lines: [
+          {
+            moves: "1.d4 d5 2.c4 e6 3.Cf3 Cf6 4.g3 Fe7 5.Fg2 0-0 6.0-0 c6",
+            evaluation: "La structure reste très subtile et équilibrée, malgré la pression blanche sur le centre.",
+            plan: "Le blanc cherche à utiliser le fianchetto et la mobilité de ses pièces."
+          },
+          {
+            moves: "7.Cc3 b6 8.cxd5 cxd5 9.Ce5",
+            evaluation: "Le blanc prend de l’espace, mais le noir garde de bonnes chances de coordination.",
+            plan: "Le noir cherche à jouer sur la qualité de l’activité de ses pièces et sur la structure."
+          }
+        ]
       }
     ]
   },
@@ -396,6 +520,7 @@ const openings = [
     name: "Ouverture anglaise",
     eco: "A10",
     family: "Ouverture flanquée",
+    players: ["Karpov", "Nakamura", "Botvinnik"],
     summary:
       "L’Anglaise est une ouverture de flanc très moderne, très souple et très utile dans les parties de haut niveau. Elle façonne le centre par des idées indirectes.",
     idea: [
@@ -411,7 +536,7 @@ const openings = [
       },
       {
         moves: "3...d5 4.cxd5 Cxd5 5.Bg2 Cxc3 6.bxc3",
-        evaluation: "La structure est ouverte, le centre est plus équilibré et l’avantage du blanc reste subtil mais bien présent.",
+        evaluation: "La structure est ouverte, le centre est plus équilibré et l’avantage du blanc reste subtil mais présent.",
         plan: "Le blanc cherchera à créer un jeu de pièces plus souple et à utiliser la structure ouverte pour sa coordination."
       },
       {
@@ -421,28 +546,63 @@ const openings = [
       },
       {
         moves: "7...e4 8.Cf3 Cc6 9.0-0",
-        evaluation: "La position est toujours très propre et le blanc garde un jeu à la fois solide et bien préparé.",
+        evaluation: "La position est très propre et le blanc garde un jeu à la fois solide et bien préparé.",
         plan: "Le blanc continue à chercher le meilleur schéma de développement et la flexibilité sur les ailes."
       }
     ],
     variants: [
       {
         title: "Système du four-pion",
-        text: "Une approche centrée sur l’espace, le contrôle indirect et la flexibilité structurelle."
+        text: "Une approche centrée sur l’espace, le contrôle indirect et la flexibilité structurelle.",
+        lines: [
+          {
+            moves: "1.c4 e5 2.Cc3 Cf6 3.g3 d5 4.cxd5 Cxd5 5.Bg2",
+            evaluation: "Le blanc a un jeu très calme et très bien préparé, avec beaucoup d’opportunités de structure.",
+            plan: "Le noir doit évoluer avec soin afin d’éviter un plan trop passif."
+          },
+          {
+            moves: "5...Cxc3 6.bxc3 c5 7.d4",
+            evaluation: "Le centre est sous contrôle et les blancs gardent l’avantage du type de position.",
+            plan: "Le noir cherche à dévier le jeu à l’aile dame mais doit rester solide."
+          }
+        ]
       },
       {
         title: "Variantes du flanc",
-        text: "La position est très ouverte et les plans peuvent varier selon l’initiative de chacun."
+        text: "La position est très ouverte et les plans peuvent varier selon l’initiative de chacun.",
+        lines: [
+          {
+            moves: "1.c4 c5 2.Cc3 Cc6 3.g3 g6 4.Fg2 Fg7",
+            evaluation: "Le blanc garde une position très naturelle, bien harmonisée et pleine de potentiel stratégique.",
+            plan: "Le noir doit s’organiser pour ne pas se laisser jouer sur le flanc."
+          },
+          {
+            moves: "5.d3 d6 6.Cf3 e5 7.0-0",
+            evaluation: "La structure est très sûre, et le blanc garde la possibilité d’un bon plan de pièces.",
+            plan: "Le noir cherche à faire de son centre un vrai instrument de contre-jeu."
+          }
+        ]
       },
       {
         title: "Plan de pièces",
-        text: "L’Anglaise est excellente pour les plans subtils, souvent plus durables que la tactique immédiate."
+        text: "L’Anglaise est excellente pour les plans subtils, souvent plus durables que la tactique immédiate.",
+        lines: [
+          {
+            moves: "1.c4 e5 2.Cc3 Cf6 3.g3 d5 4.cxd5 Cxd5 5.Bg2 Cxc3 6.bxc3",
+            evaluation: "Le blanc a un bon contrôle d’espace et un plan de pièces très souple.",
+            plan: "Le noir doit trouver sa propre logique de contre-attaque en gardant un centre sain."
+          },
+          {
+            moves: "6...c5 7.d4 e4 8.Cf3 Cc6 9.0-0",
+            evaluation: "Le blanc garde un jeu très cohérent et très constructif.",
+            plan: "Le noir cherche à ajouter des tensions sur les ailes et la structure centrale."
+          }
+        ]
       }
     ]
   }
 ];
 
-const openingList = document.getElementById("openingList");
 const openingGrid = document.getElementById("openingGrid");
 const openingHeader = document.getElementById("openingHeader");
 const openingIdea = document.getElementById("openingIdea");
@@ -454,10 +614,6 @@ const detailView = document.getElementById("detailView");
 const backButton = document.getElementById("backButton");
 
 let currentId = openings[0].id;
-
-function getSelectedOpening() {
-  return openings.find((opening) => opening.id === currentId) ?? openings[0];
-}
 
 function renderIdea(opening) {
   openingIdea.innerHTML = opening.idea
@@ -472,6 +628,9 @@ function renderBoard(opening) {
     <div class="meta-row">
       <span class="meta-badge">ÉCO ${opening.eco}</span>
       <span class="meta-badge">Théorie moderne</span>
+    </div>
+    <div class="player-row">
+      ${opening.players.map((player) => `<span class="player-chip">${player}</span>`).join("")}
     </div>
   `;
 
@@ -495,19 +654,23 @@ function renderBoard(opening) {
         <article class="variant-card">
           <h3>${variant.title}</h3>
           <p>${variant.text}</p>
+          <ul class="variant-lines">
+            ${variant.lines
+              .map(
+                (line) => `
+                  <li>
+                    <strong>${line.moves}</strong>
+                    <span>${line.evaluation}</span>
+                    <span>${line.plan}</span>
+                  </li>
+                `
+              )
+              .join("")}
+          </ul>
         </article>
       `
     )
     .join("");
-}
-
-function setActiveButton(id) {
-  const buttons = document.querySelectorAll(".opening-btn");
-  buttons.forEach((button) => {
-    const isActive = button.dataset.id === id;
-    button.classList.toggle("active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
-  });
 }
 
 function showHub() {
@@ -519,8 +682,7 @@ function showDetail(id) {
   currentId = id;
   hubView.classList.add("hidden");
   detailView.classList.remove("hidden");
-  renderBoard(getSelectedOpening());
-  renderList(searchInput.value);
+  renderBoard(openings.find((opening) => opening.id === id) ?? openings[0]);
 }
 
 function renderOpeningGrid(filter = "") {
@@ -539,11 +701,11 @@ function renderOpeningGrid(filter = "") {
     .map(
       (opening) => `
         <article class="opening-card" tabindex="0" data-id="${opening.id}">
-          <h3>${opening.name}</h3>
           <div class="meta-row">
             <span class="meta-badge">${opening.eco}</span>
             <span class="meta-badge">${opening.family}</span>
           </div>
+          <h3>${opening.name}</h3>
           <p>${opening.summary}</p>
         </article>
       `
@@ -562,44 +724,6 @@ function renderOpeningGrid(filter = "") {
   });
 }
 
-function renderList(filter = "") {
-  const normalized = filter.trim().toLowerCase();
-  const filtered = openings.filter((opening) => {
-    const haystack = `${opening.name} ${opening.family} ${opening.eco} ${opening.summary}`.toLowerCase();
-    return haystack.includes(normalized);
-  });
-
-  if (!filtered.length) {
-    openingList.innerHTML = '<div class="empty-state">Aucune ouverture trouvée.</div>';
-    return;
-  }
-
-  openingList.innerHTML = filtered
-    .map(
-      (opening) => `
-        <button
-          class="opening-btn ${opening.id === currentId ? "active" : ""}"
-          type="button"
-          data-id="${opening.id}"
-          aria-pressed="${opening.id === currentId}"
-        >
-          <span class="opening-name">${opening.name}</span>
-          <span class="opening-eco">${opening.eco}</span>
-        </button>
-      `
-    )
-    .join("");
-
-  openingList.querySelectorAll(".opening-btn").forEach((button) => {
-    button.addEventListener("click", () => {
-      currentId = button.dataset.id;
-      showDetail(currentId);
-    });
-  });
-
-  setActiveButton(currentId);
-}
-
 searchInput.addEventListener("input", (event) => {
   const value = event.target.value;
   const filtered = openings.filter((opening) => {
@@ -612,21 +736,12 @@ searchInput.addEventListener("input", (event) => {
   }
 
   renderOpeningGrid(value);
-  renderList(value);
-
-  if (!hubView.classList.contains("hidden")) {
-    renderBoard(getSelectedOpening());
-  }
 });
 
 backButton.addEventListener("click", () => {
   showHub();
   renderOpeningGrid(searchInput.value);
-  renderList(searchInput.value);
 });
 
 renderOpeningGrid();
-renderList();
 showHub();
-
-
